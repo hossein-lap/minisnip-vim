@@ -1,53 +1,50 @@
 ```
-        ┏━━━┓
-        ┃┏━┓┃
-┏┓┏┳┳━┓┏┫┗━━┳━┓┏┳━━┓
-┃┗┛┣┫┏┓╋╋━━┓┃┏┓╋┫┏┓┃
-┃┃┃┃┃┃┃┃┃┗━┛┃┃┃┃┃┗┛┃
-┗┻┻┻┻┛┗┻┻━━━┻┛┗┻┫┏━┛
-                ┃┃
-                ┗┛
+ __  __ ___ _  _ ___ ___ _  _ ___ ___ 
+|  \/  |_ _| \| |_ _/ __| \| |_ _| _ \
+| |\/| || || .` || |\__ \ .` || ||  _/
+|_|  |_|___|_|\_|___|___/_|\_|___|_|  
+                                      
 ```
 
-**miniSnip** is lightweight and minimal snippet plugin written in Vim Script.
+**minisnip** is lightweight and minimal snippet plugin written in Vim Script.
 
 ## Installation
 
-Use your favourite plugin manager to install miniSnip:
+Use your favourite plugin manager to install minisnip:
 
-#### [minPlug](https://github.com/Jorengarenar/minPlug):
+#### [minPlug](https://github.com/hossein-lap/minPlug):
 ```vim
-MinPlug Jorengarenar/miniSnip
+MinPlug hossein-lap/minisnip-vim
 ```
 
 #### [vim-plug](https://github.com/junegunn/vim-plug):
 ```vim
-Plug 'Jorengarenar/miniSnip'
+Plug 'hossein-lap/minisnip-vim'
 ```
 
 #### Vim's packages
 ```bash
 cd ~/.vim/pack/plugins/start
-git clone git://github.com/Jorengarenar/miniSnip.git
+git clone git://github.com/hossein-lap/minisnip-vim.git
 ```
 
 #### [NeoBundle](https://github.com/Shougo/neobundle.vim)
 ```vim
-NeoBundle 'Jorengarenar/miniSnip'
+NeoBundle 'hossein-lap/minisnip-vim'
 ```
 
 ## Usage
 
-To get started with miniSnip, in your runtime (on UNIX usually: `~/.vim`)
-create a directory called `miniSnip/all`. Then placing a file called `foo.snip`
+To get started with minisnip, in your runtime (on UNIX usually: `~/.vim`)
+create a directory called `minisnip/all`. Then placing a file called `foo.snip`
 inside it will create the `foo` snippet, which you can access by typing
 `foo<C-j>` in insert mode.
 
 Filetype-aware snippets are also available. For example, a file called
-`main` in `~/.vim/miniSnip/java/main.snip` will create a `main` snippet only when
+`main` in `~/.vim/minisnip/java/main.snip` will create a `main` snippet only when
 `filetype=java`, allowing you to add a `main` for C, `main` for C++ and so on.
 
-See [the documentation](doc/miniSnip.txt) to learn the snippet syntax and options.
+See [the documentation](doc/minisnip.txt) to learn the snippet syntax and options.
 
 ## Features
 
@@ -57,10 +54,10 @@ See [the documentation](doc/miniSnip.txt) to learn the snippet syntax and option
   * ins-completion function
   * `<{+}>` will be targeted last (equivalent of `$0` in UltiSnips)
   * filetype-aware snippets
-  * changing delimiters, snippet file filetype etc. (`:h miniSnip-configuration`)
-  * local snippets (`:h g:miniSnip_local`)
-  * named placeholders (`:h g:miniSnip_named`)
-  * global and local to buffer configuration (`:h g:miniSnip-configuration`)
+  * changing delimiters, snippet file filetype etc. (`:h minisnip-configuration`)
+  * local snippets (`:h g:minisnip_local`)
+  * named placeholders (`:h g:minisnip_named`)
+  * global and local to buffer configuration (`:h g:minisnip-configuration`)
 
 ## Examples
 
@@ -107,7 +104,7 @@ done
 ```
 ---
 
-For more information, see [the documentation](doc/miniSnip.txt).
+For more information, see [the documentation](doc/minisnip.txt).
 
 ---
 
@@ -119,13 +116,13 @@ Main differences:
     instead of the penultimate
   * references aren't in quotes
   * references to bigger numbers than 9
-  * descriptions (`:h g:miniSnip_descmark`)
-  * option to change delimiters for specific snippet (`:h g:miniSnip_delimChg`)
-  * extending filetypes (`:h g:miniSnip_extends`)
+  * descriptions (`:h g:minisnip_descmark`)
+  * option to change delimiters for specific snippet (`:h g:minisnip_delimChg`)
+  * extending filetypes (`:h g:minisnip_extends`)
   * cursor at the end of snippets without placeholders, not the beginning
   * directories instead of prefixes for snippets file management
   * respect `expandtab`
-  * one final placeholder (`:h g:miniSnip_finalTag`) instead of final delimiters
+  * one final placeholder (`:h g:minisnip_finalTag`) instead of final delimiters
   * local snippets
   * named placeholders
   * configurable character class used to get snippet name

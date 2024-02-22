@@ -5,7 +5,7 @@ function! s:SID() abort
 endfunction
 let s:sid = s:SID()
 
-function! miniSnip#trigger() abort
+function! minisnip#trigger() abort
   let ret = ""
 
   if empty(s:SNIP) || empty(s:findPlaceholder(1))
@@ -13,7 +13,7 @@ function! miniSnip#trigger() abort
     let s:SNIP = s:Snip(cword)
     if empty(s:SNIP.file)
       let s:SNIP = {}
-      echo "miniSnip: no snippet with key '".cword."'"
+      echo "minisnip: no snippet with key '".cword."'"
       return ""
     endif
     let ret .= "\<Esc>:call ".s:sid."parseFile()\<CR>"
@@ -25,14 +25,14 @@ function! miniSnip#trigger() abort
   return ret."\<Esc>:call ".s:sid."selectPlaceholder()\<CR>"
 endfunction
 
-function! miniSnip#clear() abort
+function! minisnip#clear() abort
   let s:SNIP = {}
   return ""
 endfunction
 
 
 function! s:getVar(var) abort
-  return get(b:, "miniSnip_".a:var, eval("g:miniSnip_".a:var))
+  return get(b:, "minisnip_".a:var, eval("g:minisnip_".a:var))
 endfunction
 
 function! s:directories() abort
@@ -46,7 +46,7 @@ function! s:directories() abort
   let dirs = !empty(s:getVar("local")) ? [ "./" . s:getVar("local") ] : []
 
   if empty(s:getVar("dirs"))
-    let dirs += map(split(&runtimepath, ","), {_, val -> val."/miniSnip" })
+    let dirs += map(split(&runtimepath, ","), {_, val -> val."/minisnip" })
   else
     let dirs += s:getVar("dirs")
   endif
@@ -258,7 +258,7 @@ function! s:selectPlaceholder() abort
   let ph = s:findPlaceholder(0)
 
   if empty(ph)
-    call miniSnip#clear()
+    call minisnip#clear()
     call feedkeys('a', 'n')
     return
   endif
@@ -321,7 +321,7 @@ function! s:buildComp(_, path) abort
         \ }
 endfunction
 
-function! miniSnip#completeFunc(findstart, base) abort
+function! minisnip#completeFunc(findstart, base) abort
   if a:findstart
     " Locate the start of the word
     let line = getline('.')
@@ -343,12 +343,12 @@ function! miniSnip#completeFunc(findstart, base) abort
   return all
 endfunction
 
-function! miniSnip#completeMapping() abort
+function! minisnip#completeMapping() abort
   let cword = matchstr(getline('.'), s:getVar("exppat") . '\v%' . col('.') . 'c')
   if cword is# ' '
     let cword = ''
   endif
   let start = virtcol('.') - len(cword)
-  call complete(start, miniSnip#completeFunc(0, cword))
+  call complete(start, minisnip#completeFunc(0, cword))
   return ''
 endfunction
