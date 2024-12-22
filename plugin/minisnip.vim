@@ -5,7 +5,7 @@ if exists('g:loaded_minisnip') | finish | endif
 let s:cpo_save = &cpo | set cpo&vim
 
 let g:minisnip_dirs     = get(g:, 'minisnip_dirs', [])
-let g:minisnip_trigger  = get(g:, 'minisnip_trigger', '<C-s>')
+let g:minisnip_trigger  = get(g:, 'minisnip_trigger', '<C-e>')
 let g:minisnip_complkey = get(g:, 'minisnip_complkey', '<C-x><C-u>')
 let g:minisnip_extends  = get(g:, 'minisnip_extends', {})
 let g:minisnip_ext      = get(g:, 'minisnip_ext', 'snip')
